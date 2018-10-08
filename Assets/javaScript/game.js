@@ -16,22 +16,22 @@ var game = {
     winVis: "hidden",
     
     gameSetup: function(){
-        this.resetDamageDealt(this.currentDamage)
+        this.resetDamageDealt(this.currentDamage);
         this.winScreenVis(this.winVis);
         this.lossScreenVis(this.lossVis);
         this.resetDamageDealt(this.currentDamage);
         this.chooseEnemyHealth(this.enemyHealth);
         this.choosePlayerDamage(players);
         this.assignDamageIds(players);
-        this.gameState + 1;
+        this.gameState = this.gameState + 1;
         console.log("good job me")
+        console.log(game)
     },
     //runs at upon starting and at the end of each game after an additional click
 
     chooseEnemyHealth: function(arr){
-        arr = Math.floor((Math.random() * 40) + 80);
-        $("#waspHealth").text(arr);
-        //i dont think i need to return be i might
+        this.enemyHealth = Math.floor((Math.random() * 40) + 80);
+        $("#waspHealth").text(this.enemyHealth);
         //this is choosing health for the enemy and should be passed the enemyHealth property
     },
 
@@ -53,14 +53,12 @@ var game = {
         }
         for(i=0; i<4; i++){
             $(".playerBee"+[i]).attr("id", damArr[i]);
-            console.log($(".playerBee"+[i]).attr("id", damArr[i]));
     }},
+    //this takes the random damages assigned to the player properties in the step above and adds an ID attribute to each of the player images that matches their randomly generated damage for the game
 
-    //may need a player damage reset.
-
-    resetDamageDealt: function (arr){
-        arr = 0;
-        $("#damageScore").text(arr);
+    resetDamageDealt: function (){
+        this.currentDamage = 0;
+        $("#damageScore").text(this.currentDamage);
     },
     //resets the damage to 0 after each turn
 
@@ -79,8 +77,8 @@ var game = {
     },
     //will manipulate the visibility of the win screen at game end and reset
 
-    checkGameOver: function(arr, event){
-        if (arr > this.enemyHealth){
+    checkGameOver: function(event){
+        if (game.currentDamage > this.enemyHealth){
             //this function is designed for game.currentDamage to be fed in. this "if" checks for a loss by overshooting the target damage. If so, this runs.
             this.lossScreenVis("visible");
             //sets loss screen to visible
@@ -88,41 +86,42 @@ var game = {
             //adds a loss
             $("#losses").text(this.losses);
             //updates losses displayed
-            this.gameState-1;
+            this.gameState = this.gameState-1;
             //resets gameState
-        }else if(arr = this.enemyHealth){
+        }
+        if(game.currentDamage === this.enemyHealth){
             //checks for a win of matching damage to health
             this.winScreenVis("visible");
             //displays win screen
             this.wins++;
             //adds a win
-            $(".wins").text(this.wins);
+            $("#wins").text(this.wins);
             //updates wins
-            this.gameState-1;
+            this.gameState = this.gameState-1;
             //resets gamestate
-        }else{  
-            this.gamePlay(event)
         }
-        //if no win or loss, keep playing
+        //else nothing, keep playing
     },
 
-    gamePlay: function(){
-       $(".playerBee").click(function(event){
-           console.log("listening")
+    gamePlay: function(event){
             var turnDamage = parseInt(event.target.id);
-            game.currentDamage + turnDamage;
-            displayDamageDealt(game.currentDamage);
-       })
+            //gets id from html element clicked
+            game.currentDamage = game.currentDamage + turnDamage;
+            //adds the value as a number to create new score
+            game.displayDamageDealt(game.currentDamage);
+            //displays new score
+            game.checkGameOver();
+            //runs gameCheck to see if the game is over
     }
-
 }
 
-
-if (game.gameState === 0 ){
-    game.gameSetup()
-}else{
-    console.log("i'm working");
-    $(document).ready(function(){
-        $(".playerBee").click(checkGameOver(game.currentDamage, event));
+$(document).ready(function(){
+    $(".playerBee").on("click", function(event){
+        if (game.gameState === 0) {
+            //ensures the game setup only runs once. 
+            game.gameSetup(event);
+        } else{ 
+            game.gamePlay(event);
+        }
     })
-}
+})

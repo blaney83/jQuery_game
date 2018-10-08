@@ -13,24 +13,17 @@
 </head>
 
 <body>
-    <div class="card lossCard" style="width: 18rem;">
+    <div class="card lossCard">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            <h5 class="card-title">Battle Lost</h5>
+            <p class="card-text">More wasps were alerted of our attacks and forced our retreat. We need to regroup and
+                prepare for the next battle! Click any soldier to play again.</p>
         </div>
     </div>
-    <div class="card winCard" style="width: 18rem;">
+    <div class="card winCard">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            <h5 class="card-title">Battle Won!</h5>
+            <p class="card-text">Enemy defeated! On to the next one! Click any soldier to continue the battle.</p>
         </div>
     </div>
     <div class="container" id="mainCont">
@@ -61,7 +54,7 @@
                     <br>
                     If you defeat a wasp, move on to the next with a win in your corner. Otherwise, it will count as a
                     wasp. Each enemy will have a different level of health and the effectiveness of your warriors
-                    attacks will vary between enemies.
+                    attacks will vary between enemies. Click one of the players to start the game.
                     <br>
                     <br>
                     Good luck! Fight hard, defend the Queen, and protect the Hive!
@@ -69,37 +62,27 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 col-lg-8">
+            <div class="col-md-12 col-lg-8 waspGuy">
                 <img class="enemyImg" src="Assets/Images/gangster_cartoon_bee_red.png" alt="Lawrence the killer wasp">
                 <div class="enemyText">Wasp
                     Health: <span id="waspHealth">0</span>
                 </div>
             </div>
             <div class="col-md-12 col-lg-4">
-                <div class="row scoreRow">
-                    <div class="col-md-12 col-lg-6">
-                        <p>Wins: <span id="wins"></span>0</p>
-                    </div>
-                    <div class="col-md-12 col-lg-6">
-                        <p>Losses: <span id="losses"></span>0</p>
-                    </div>
-                    <div class="col-12">
-                        <p>Battles Fought: <span id="totalBattles">0</span></p>
-                    </div>
-                </div>
                 <div class="row damageRow">
                     <div class="col-12">
-                        <div class="row">
-                            <div class="col-12">
-                                Current Damage Dealt: <span id="damageScore">0</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <span id="currentDamage">0</span>
-                                <!-- redundant take out -->
-                            </div>
-                        </div>
+                        Current Damage Dealt: <span id="damageScore">0</span>
+                    </div>
+                </div>
+                <div class="row scoreRow">
+                    <div class="col-sm-6 col-md-4">
+                        <p>Wins: <span id="wins">0</span></p>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <p>Losses: <span id="losses">0</span></p>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <p>Battles Fought: <span id="totalBattles">0</span></p>
                     </div>
                 </div>
             </div>
