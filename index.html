@@ -1,37 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Protect the Hive</title>
     <link rel="stylesheet" href="Assets/CSS/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="Assets/CSS/style.css">
 </head>
+
 <body>
+    <div class="card lossCard" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+    <div class="card winCard" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
     <div class="container" id="mainCont">
         <div class="row">
-            <div class="col-12 align-self-center">
+            <div class="col-12 titleCol">
                 <h1>Protect the Hive!</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <p>
+                <p id="rulesP">
                     You're a general in the bee army of your hive. Your hive has come under attack by a group of wasps!
                     <br>
                     <br>
-                    Your division of warrior bees stands ready to defend the queen. Below you have your four best soldiers. Each one deals a specific amount of damage. 
+                    Your division of warrior bees stands ready to defend the queen. Below you have your four best
+                    soldiers. Each one deals a specific amount of damage.
                     <br>
                     <br>
-                    Click on your soldiers to trigger their attack on the invading wasp. Be careful! Wasps are cunning and strong warriors and can only be defeated by dealing a precise amount of damage. This will be displayed as health specific to each attacking enemy.
+                    Click on your soldiers to trigger their attack on the invading wasp. Be careful! Wasps are cunning
+                    and strong warriors and can only be defeated by dealing a precise amount of damage. This will be
+                    displayed as health specific to each attacking enemy.
                     <br>
                     <br>
-                    Use different combinations of strikes to deal the exact amount of damage needed to take out a given wasp. Too much damage will attract the attention of nearby wasps who will rally to the rescue of their fallen comrade and surely wipe out your division.
+                    Use different combinations of strikes to deal the exact amount of damage needed to take out a given
+                    wasp. Too much damage will attract the attention of nearby wasps who will rally to the rescue of
+                    their fallen comrade and surely wipe out your division.
                     <br>
                     <br>
-                    If you defeat a wasp, move on to the next with a win in your corner. Otherwise, it will count as a wasp. Each enemy will have a different level of health and the effectiveness of your warriors attacks will vary between enemies.
+                    If you defeat a wasp, move on to the next with a win in your corner. Otherwise, it will count as a
+                    wasp. Each enemy will have a different level of health and the effectiveness of your warriors
+                    attacks will vary between enemies.
                     <br>
                     <br>
                     Good luck! Fight hard, defend the Queen, and protect the Hive!
@@ -40,10 +70,13 @@
         </div>
         <div class="row">
             <div class="col-md-12 col-lg-8">
-                <!-- Contains the wasp img and health -->
+                <img class="enemyImg" src="Assets/Images/gangster_cartoon_bee_red.png" alt="Lawrence the killer wasp">
+                <div class="enemyText">Wasp
+                    Health: <span id="waspHealth">0</span>
+                </div>
             </div>
             <div class="col-md-12 col-lg-4">
-                <div class="row">
+                <div class="row scoreRow">
                     <div class="col-md-12 col-lg-6">
                         <p>Wins: <span id="wins"></span>0</p>
                     </div>
@@ -54,33 +87,41 @@
                         <p>Battles Fought: <span id="totalBattles">0</span></p>
                     </div>
                 </div>
+                <div class="row damageRow">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
+                                Current Damage Dealt: <span id="damageScore">0</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <span id="currentDamage">0</span>
+                                <!-- redundant take out -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-3">
-                <!-- soldier one -->
+                <img class="playerBee playerBee0" src="Assets/Images/cartoon_bee_blue.png" alt="Joe Blue">
             </div>
             <div class="col-3">
-                <!-- soldier two -->
+                <img class="playerBee playerBee1" src="Assets/Images/cartoon_bee_red.png" alt="Gary the Pleb Bee">
             </div>
             <div class="col-3">
-                <!-- soldier three -->
+                <img class="playerBee playerBee2" src="Assets/Images/cartoon_bee_yellow.png" alt="Marty Yellow">
             </div>
             <div class="col-3">
-                <!-- soldier four -->
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                Current Damage Dealt:
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <span id="currentDamage">0</span>
+                <img class="playerBee playerBee3" src="Assets/Images/cartoon_bee_green.png" alt="Jimmy Green">
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <script src="Assets/javaScript/game.js"></script>
 </body>
+
 </html>

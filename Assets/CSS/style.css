@@ -4,6 +4,7 @@ body {
 
 #mainCont{
     background-color: rgba(128, 128, 128, 0.9);
+    width: 100%;
     margin-top: 3rem;
     margin-bottom: 3rem;
     padding: 1.5rem 2rem;
@@ -13,6 +14,76 @@ body {
     border-radius: .5rem;
 }
 
+.titleCol {
+    text-align: center;
+}
 
+h1 {
+    font-weight: bolder;
+    font-style: italic;
+    background-color: rgba(204, 204, 204, 0.849);
+    border-style: solid;
+    border-width: .05rem;
+    border-color: black;
+    border-radius: .2rem;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+    margin-bottom: 1rem;
+}
+
+#rulesP {
+    background-color: rgb(211, 211, 211);
+    padding: .8rem .4rem;
+    border-style: solid;
+    border-width: .05rem;
+    border-color: black;
+    border-radius: .2rem;
+    font-weight: 4px;
+}
+
+.enemyImg {
+    max-width: 100%;
+    border-style: solid;
+    border-width: .05rem;
+    border-color: black;
+    border-radius: .7rem;
+}
+
+.playerBee {
+    max-width: 100%;
+    background-color: darkslategray;
+    border-style: solid;
+    border-width: .05rem;
+    border-color: black;
+    border-radius: .7rem;
+}
+
+.enemyText {
+    position: absolute;
+    width: 100%;
+    top: 5%;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+.winCard {
+    position: absolute;
+    visibility: hidden;
+}
+
+.lossCard {
+    position: absolute;
+    visibility: hidden;
+}
+
+/* .damageRow {
+    height: 50%;
+}
+.scoreRow {
+    height: 50%;
+} */
 
 
