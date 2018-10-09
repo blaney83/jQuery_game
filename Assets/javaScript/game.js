@@ -12,8 +12,8 @@ var game = {
     losses: 0,
     enemyHealth: 0,
     currentDamage: 0,
-    lossVis: "hidden",
-    winVis: "hidden",
+    lossVis: "0",
+    winVis: "0",
     
     gameSetup: function(){
         this.resetDamageDealt(this.currentDamage);
@@ -68,19 +68,19 @@ var game = {
     //will be called for at the end of each turn
 
     lossScreenVis: function(vis){
-        $(".lossCard").css("visibility", vis)
+        $(".lossCard").animate({ opacity: vis});
     },
     //will manipulate the visibility of the loss screen at game end and reset
 
     winScreenVis: function(vis){
-        $(".winCard").css("visibility", vis)
+        $(".winCard").animate({ opacity: vis});
     },
     //will manipulate the visibility of the win screen at game end and reset
 
     checkGameOver: function(event){
         if (game.currentDamage > this.enemyHealth){
             //this function is designed for game.currentDamage to be fed in. this "if" checks for a loss by overshooting the target damage. If so, this runs.
-            this.lossScreenVis("visible");
+            this.lossScreenVis("1");
             //sets loss screen to visible
             this.losses++;
             //adds a loss
@@ -91,7 +91,7 @@ var game = {
         }
         if(game.currentDamage === this.enemyHealth){
             //checks for a win of matching damage to health
-            this.winScreenVis("visible");
+            this.winScreenVis("1");
             //displays win screen
             this.wins++;
             //adds a win
